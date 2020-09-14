@@ -1,11 +1,12 @@
 require("dotenv").config()
 const bodyParser = require("body-parser")
 const express = require('express')
+//Modulo encargado de enviar el email
 const correo = require("./email")
 const path = require("path")
 const app  = express()
 
-
+//Creacion del servidor HTTP
 app.use(bodyParser.json())
 
 app.use('/static',express.static(path.join(__dirname,"public")))
@@ -25,6 +26,6 @@ app.post("/",(req,res)=>{
     })
 })
 
-app.listen(process.env.PORT,()=>{
-    console.log("App is running %s",port)
+app.listen(process.env.PORT || 8080,()=>{
+    console.log("App is running %s",process.env.PORT)
 })

